@@ -1,38 +1,190 @@
-.App {
-  text-align: center;
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 450px;
+    max-width: 600px;
+    padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app{
+    padding: 10px;
+    width: 100%;
+    min-height: 450px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0;
+        height: auto;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        padding: 0;
+        margin: 0;
+        height: auto;
+    }
 }
 
-.App-link {
-  color: #61dafb;
+
+input{
+    padding: 10px;
+    width: calc(100%-60px);
+    margin-right:10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button{
+    padding: 10px;
+}
+
+ul{
+    max-height: 300px;
+    overflow-y: auto;
+    list-style-type:none;;
+    padding: 0px;
+    margin: 0;
+}
+
+ul::-webkit-scrollbar{
+   width: 4px;
+}
+
+ul::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background:rgba(135,135,135,0.5);
+    border-radius: 5px;
+    visibility: hidden;
+    transition: visibility 0.6s ease-in-out;
+}
+
+ul.scrollable::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+ul::-webkit-scrollbar-button {
+    display: none;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+li{
+    padding: 5px;
+    margin-left: 0px;
+    list-style-type: decimal;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+}
+li.completed .todo{
+    text-decoration: line-through;
+    color: #777;
+    background-color: #f0f0f0;
+}
+.actions{
+    display: flex;
+    gap: 10px;
+}
+.actions button{
+    margin-left: -20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.actions button:hover{
+    color: #f00;
+    opacity: 0.9;
+}
+
+.actions button:first-child{
+    background-color: transparent;
+
+}
+.actions button:last-child {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+li.completed.actions button:last-child {
+    text-decoration: none;
+    background-color: #516d52;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #516d52;
+    margin-bottom: -5px;
+    text-align: left;
+    font-size:medium;
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    max-width: fit-content;
+    /* Adjust width as needed */
+    background-color: rgb(0, 0, 0,0.5);
+    /* Tooltip background color */
+    color: #f9f9f9;
+    /* Tooltip text color */
+    font-size: 10px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    /* Position above the tooltip trigger */
+    right: 50%;
+    margin-left: -60px;
+    /* Center the tooltip */
+    opacity: 0;
+    /* Start hidden */
+    transition: opacity 0.3s;
+    /* Smooth transition */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    /* Show tooltip on hover */
 }
